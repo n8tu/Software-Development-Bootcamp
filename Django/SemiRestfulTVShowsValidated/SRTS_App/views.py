@@ -23,7 +23,7 @@ def show_new(request):
 def create_show(request):
     if request.method == 'POST':
 
-        errors = Show.objects.new_show_validator(request.POST)
+        errors = Show.objects.show_validator(request.POST)
 
         if len(errors) > 0:
             for key, value in errors.items():
@@ -60,7 +60,7 @@ def show_edit(request, _id):
 
 def show_update(request, _id):
     if request.method == 'POST':
-        errors = Show.objects.edit_show_validator(request.POST)
+        errors = Show.objects.show_validator(request.POST)
         if len(errors) > 0:
             for key, value in errors.items():
                 messages.error(request, value)

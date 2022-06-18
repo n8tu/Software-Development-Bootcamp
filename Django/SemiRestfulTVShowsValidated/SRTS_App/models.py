@@ -4,25 +4,7 @@ import datetime
 
 class ShowManager(models.Manager):
 
-    def new_show_validator(self,data):
-        errors = {}
-        if len(data['title']) < 2:
-            errors['title'] = "Title cannot be less than 2 characters!"
-        if len(data['network']) < 2:
-            errors['network'] = "Network cannot be less than 3 characters!"
-        if 0 < len(data['description']) and len(data['description']) < 9:
-            errors['description'] = "Description must be at least 10 characters!"
-        if len(data['release_date']) > 0:
-            _releaseDate = datetime.datetime.strptime(data['release_date'],'%Y-%m-%d')
-            _todayDate = datetime.datetime.today()
-            if _todayDate < _releaseDate:
-                errors['release_date'] = "Release date should be in the past!"
-        else:
-            errors['release_date'] = "Field release date is required!"
-
-        return errors
-
-    def edit_show_validator(self,data):
+    def show_validator(self,data):
         errors = {}
         if len(data['title']) < 2:
             errors['title'] = "Title cannot be less than 2 characters!"
