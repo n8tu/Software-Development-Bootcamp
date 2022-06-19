@@ -10,5 +10,7 @@ urlpatterns = [
     path('shows/<_id>/edit',views.show_edit),
     path('shows/<_id>/update',views.show_update),
     path('shows/<_id>/destroy',views.show_destory),
+    path('shows/ajax/create',views.create_show_ajax),
+    path('shows/ajax/<_id>/update',views.update_show_ajax),
 
 ]
