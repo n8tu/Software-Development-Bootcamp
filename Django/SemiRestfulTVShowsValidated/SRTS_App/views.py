@@ -20,26 +20,26 @@ def show_new(request):
     return render(request, 'create_show.html')
 
 
-def create_show(request):
-    if request.method == 'POST':
+# def create_show(request):
+#     if request.method == 'POST':
 
-        errors = Show.objects.show_validator(request.POST)
+#         errors = Show.objects.create_validator(request.POST)
 
-        if len(errors) > 0:
-            for key, value in errors.items():
-                messages.error(request, value)
-        else:
-            show = Show.objects.create(
-                title=request.POST['title'],
-                network=request.POST['network'],
-                release_date=request.POST['release_date'],
-                description=request.POST['description']
-            )
-            show.save()
-            messages.success(request, "Show successfully Added!")
-            return redirect(f'/shows/{show.id}')
+#         if len(errors) > 0:
+#             for key, value in errors.items():
+#                 messages.error(request, value)
+#         else:
+#             show = Show.objects.create(
+#                 title=request.POST['title'],
+#                 network=request.POST['network'],
+#                 release_date=request.POST['release_date'],
+#                 description=request.POST['description']
+#             )
+#             show.save()
+#             messages.success(request, "Show successfully Added!")
+#             return redirect(f'/shows/{show.id}')
 
-    return redirect('/shows/new')
+#     return redirect('/shows/new')
 
 
 def show(request, _id):
@@ -58,22 +58,22 @@ def show_edit(request, _id):
     return render(request, 'edit_show.html', context)
 
 
-def show_update(request, _id):
-    if request.method == 'POST':
-        errors = Show.objects.show_validator(request.POST)
-        if len(errors) > 0:
-            for key, value in errors.items():
-                messages.error(request, value)
-        else:
-            show = Show.objects.get(id=_id)
-            show.title = request.POST['title']
-            show.network = request.POST['network']
-            show.description = request.POST['description']
-            show.release_date = request.POST['release_date']
-            show.save()
-            return redirect(f'/shows/{_id}')
+# def show_update(request, _id):
+#     if request.method == 'POST':
+#         errors = Show.objects.update_validator(request.POST)
+#         if len(errors) > 0:
+#             for key, value in errors.items():
+#                 messages.error(request, value)
+#         else:
+#             show = Show.objects.get(id=_id)
+#             show.title = request.POST['title']
+#             show.network = request.POST['network']
+#             show.description = request.POST['description']
+#             show.release_date = request.POST['release_date']
+#             show.save()
+#             return redirect(f'/shows/{_id}')
 
-    return redirect(f'/shows/{_id}/edit')
+#     return redirect(f'/shows/{_id}/edit')
 
 
 def show_destory(request, _id):
@@ -86,12 +86,12 @@ def show_destory(request, _id):
 def create_show_ajax(request):
     if request.method == 'POST':
 
-        errors = Show.objects.show_validator(request.POST)
+        errors = Show.objects.create_validator(request.POST)
 
         if len(errors) > 0:
             data = {
-                'message':errors,
-                'alert':"danger"
+                'message': errors,
+                'alert': "danger"
             }
         else:
             show = Show.objects.create(
@@ -102,19 +102,20 @@ def create_show_ajax(request):
             )
             show.save()
             data = {
-                'message':{"success":"Show successfully Added!"},
-                'alert':"success"
+                'message': {"success": "Show successfully Added!"},
+                'alert': "success"
             }
 
         return JsonResponse(data)
 
-def update_show_ajax(request,_id):
+
+def update_show_ajax(request, _id):
     if request.method == 'POST':
-        errors = Show.objects.show_validator(request.POST)
+        errors = Show.objects.update_validator(request.POST)
         if len(errors) > 0:
             data = {
-                'message':errors,
-                'alert':"danger"
+                'message': errors,
+                'alert': "danger"
             }
         else:
             show = Show.objects.get(id=_id)
@@ -124,8 +125,7 @@ def update_show_ajax(request,_id):
             show.release_date = request.POST['release_date']
             show.save()
             data = {
-                'message':{"success":"Show successfully Added!"},
-                'alert':"success"
+                'message': {"success": "Show successfully Added!"},
+                'alert': "success"
             }
         return JsonResponse(data)
-

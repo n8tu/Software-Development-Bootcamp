@@ -64,9 +64,9 @@
             $.ajax({
                 url: "/shows/ajax/create",
                 type: "POST",
-                headers:{
+                headers: {
                     "X-CSRFToken": '{{ csrf_token }}'
-                    },
+                },
                 data: {
                     title: $("input[name='title']").val(),
                     network: $("input[name='network']").val(),
@@ -79,7 +79,7 @@
                         $(".notifications").prepend(`
                             <div class="alert alert-dismissible fade show alert-${res.alert}" role="alert">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                <strong>${key.replace("_"," ").toUpperCase()}</strong> ${value}
+                                <strong>${key.replace("_", " ").toUpperCase()}</strong> ${value}
                             </div>
                         `);
                     }
