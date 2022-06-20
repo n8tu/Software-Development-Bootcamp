@@ -1,72 +1,65 @@
-// Theme: Strings & Objects
-
 /*
-  Given an array of strings
-  return a sum to represent how many times each array item is found (a frequency table)
-  Useful methods:
-    Object.hasOwnProperty("keyName")
-    - returns true or false if the object has the key or not
-    Python: key in dict
+  Array: Binary Search (non recursive)
+  Given a sorted array and a value, return whether the array contains that value.
+  Do not sequentially iterate the array. Instead, ‘divide and conquer’,
+  taking advantage of the fact that the array is sorted.
 */
 
+const nums1 = [1, 3, 5, 6];
+const searchNum1 = 4;
+// const expected1 = false
 
-function frequencyTableBuilder(arr) {
-    var object = {}
-    arr.forEach(function(ele) {
-        if (object.hasOwnProperty(ele)) {
-            object[ele]++;
+const nums2 = [4, 5, 6, 8, 12];
+const searchNum2 = 5;
+
+// const expected2 = true
+
+const nums3 = [3, 4, 6, 8, 12];
+const searchNum3 = 3;
+// const expected3 = true
+
+const nums4 = [2, 2, 2, 2, 3, 4, 5, 6, 7, 8, 9];
+const searchNum4 = 2;
+// const expected4 = true
+
+console.log(
+    binarySearch(nums1, searchNum1),
+    binarySearch(nums2, searchNum2),
+    binarySearch(nums3, searchNum3),
+    binarySearch(nums4, searchNum4)
+);
+
+function binarySearch(sortedNums, searchNum) {
+    if (sortedNums.length == 0) {
+        return false;
+    }
+
+    index = Math.floor(sortedNums.length / 2); // start from center
+    previous = null;
+    while (index > -1 && index < sortedNums.length) {
+        
+        if (sortedNums[index] == searchNum) {
+            return true;
+
+            // checking if searchNum are between previous and current value or no 
+            // otherwise change previous and decrease index ;
+        } else if (sortedNums[index] > searchNum) {
+            if (previous < searchNum && previous != null) {
+                return false;
+            } else {
+                previous = sortedNums[index];
+                index--;
+            }
+            // checking if searchNum are between previous and current value or no 
+            // otherwise change previous and increase index ;
         } else {
-            object[ele] = 1
+            if (previous > searchNum && previous != null) { 
+                return false;
+            } else {
+                previous = sortedNums[index];
+                index++;
+            }
         }
-    });
-    return object;
+    }
+    return false;
 }
-
-// frequencyTableBuilder(arr2)
-
-/*****************************************************************************/
-
-/*
-    Reverse Word Order
-  
-    Given a string of words (with spaces)
-    return a new string with words in reverse sequence.
-  */
-
-
-function reverseString(str) {
-    var temp = str.split(" ");
-    var newString = temp.reverse().join(" ");
-    return newString;
-}
-
-
-
-
-
-
-const arr1 = ["a", "a", "a"]
-    // const expected1 = {
-    //   a: 3,
-    // }
-
-const arr2 = ["a", "b", "a", "c", "B", "c", "c", "d"]
-    // const expected2 = {
-    //   a: 2,
-    //   b: 1,
-    //   c: 3,
-    //   B: 1,
-    //   d: 1,
-    // }
-
-const arr3 = []
-    // const expected3 = {}
-
-console.log(frequencyTableBuilder(arr1))
-console.log(frequencyTableBuilder(arr2))
-console.log(frequencyTableBuilder(arr3))
-const str1 = "This is a test";
-// const expected1 = "test a is This";
-const str2 = "Hello World !"
-console.log(reverseString(str1))
-console.log(reverseString(str2))
