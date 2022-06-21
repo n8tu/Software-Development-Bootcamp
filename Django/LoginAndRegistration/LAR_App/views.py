@@ -23,7 +23,9 @@ def register(request):
             )
             user.save()
             messages.success(request,"User successfully added!")
-            return redirect('/')
+
+            request.session['user_id'] = user.id
+            return redirect('/success')
     return redirect('/')
 
 def login(request):
@@ -34,7 +36,7 @@ def login(request):
                 messages.error(request,value)
             return redirect("/")
         else:
-            userid = User.objects.get(email=request.POST['email'])
+            userid = User.objects.get(email__iexact=request.POST['email'])
             request.session['user_id'] = userid.id
             return redirect('/success')
 
