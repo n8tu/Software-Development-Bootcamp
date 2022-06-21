@@ -1,65 +1,91 @@
 /*
-  Array: Binary Search (non recursive)
-  Given a sorted array and a value, return whether the array contains that value.
-  Do not sequentially iterate the array. Instead, ‘divide and conquer’,
-  taking advantage of the fact that the array is sorted.
+    Array: Remove Duplicates
+    Given a SORTED array of integers, dedupe the array
+    Because array elements are already in order, all duplicate values will be grouped together.
+    Ok to use a new array
+    Bonus: do it in O(n) time (no nested loops, new array ok)
+    Bonus: Do it in-place (no new array)
 */
 
-const nums1 = [1, 3, 5, 6];
-const searchNum1 = 4;
-// const expected1 = false
+// const nums1 = [1, 1, 1, 1]
 
-const nums2 = [4, 5, 6, 8, 12];
-const searchNum2 = 5;
+// console.log(removeDuplicates(nums1))
+// const nums2 = [1, 1, 2, 2, 3, 3]
 
-// const expected2 = true
+// console.log(removeDuplicates(nums2))
+// const nums3 = [1, 1, 2, 3, 3, 4]
+// console.log(removeDuplicates(nums3))
 
-const nums3 = [3, 4, 6, 8, 12];
-const searchNum3 = 3;
-// const expected3 = true
+// function removeDuplicates(nums) {
+//     var array = []
+//     for(var i = 0; i < nums.length; i++){
+//         if (!array.includes(nums[i])){
+//             array.push(nums[i])
+//         }
+//     }
+//     return array;
+// }
 
-const nums4 = [2, 2, 2, 2, 3, 4, 5, 6, 7, 8, 9];
-const searchNum4 = 2;
-// const expected4 = true
-
-console.log(
-    binarySearch(nums1, searchNum1),
-    binarySearch(nums2, searchNum2),
-    binarySearch(nums3, searchNum3),
-    binarySearch(nums4, searchNum4)
-);
-
-function binarySearch(sortedNums, searchNum) {
-    if (sortedNums.length == 0) {
-        return false;
+function removeDuplicates(nums) {
+    if(nums.length == 0){
+        return [];
     }
-
-    index = Math.floor(sortedNums.length / 2); // start from center
-    previous = null;
-    while (index > -1 && index < sortedNums.length) {
-        
-        if (sortedNums[index] == searchNum) {
-            return true;
-
-            // checking if searchNum are between previous and current value or no 
-            // otherwise change previous and decrease index ;
-        } else if (sortedNums[index] > searchNum) {
-            if (previous < searchNum && previous != null) {
-                return false;
-            } else {
-                previous = sortedNums[index];
-                index--;
-            }
-            // checking if searchNum are between previous and current value or no 
-            // otherwise change previous and increase index ;
-        } else {
-            if (previous > searchNum && previous != null) { 
-                return false;
-            } else {
-                previous = sortedNums[index];
-                index++;
-            }
+    var lastElement = nums[0];
+    for(var i = 1; i < nums.length; i++){
+        if(nums[i] == lastElement){
+            nums.splice(i,1);
+            i--;
+        }else{
+            lastElement = nums[i]
         }
     }
-    return false;
+    return nums
 }
+
+/*****************************************************************************/
+
+/*
+    Array: Mode
+    Create a function that, given an array of ints,
+    returns the int that occurs most frequently in the array.
+    What if there are multiple items that occur the same number of time?
+    - return all of them (in an array)
+    - what if all items occur the same number of times?
+    - return empty array
+*/
+
+const nums1 = [];
+// const expected1 = [];
+
+const nums2 = [1];
+// const expected2 = [1];
+
+const nums3 = [5, 1, 4];
+// const expected3 = [];
+
+const nums4 = [5, 1, 4, 1];
+// const expected4 = [1];
+
+const nums5 = [5, 1, 4, 1, 5];
+// const expected5 = [5, 1];
+//  - order doesn't matter
+
+// const nums6 = [5, 1, 4, 1, 5, 4];
+// const expected6 = [];
+
+console.log(mode(nums5))
+
+
+function mode(nums) {
+    var obj = {};
+    var array = []
+    for(var i = 0; i < nums.length; i++){
+        if(obj[nums[i]] == undefined){
+            obj[nums[i]] = 1;
+        }else{
+            obj[nums[i]] += 1;
+        }
+    }
+
+    return obj
+    //not completed
