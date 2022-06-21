@@ -27,7 +27,7 @@
         {% endif %}
     </div>
     <div class="container d-flex justify-content-around">
-        
+
         <form action="/register" method="POST" class="container mt-4 w-25">
             {% csrf_token %}
             <h1 class="mb-4">Registeration</h1>
@@ -45,6 +45,11 @@
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" name="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="birthday" class="form-label">Date of Birth:</label>
+                <input type="date" class="form-control" name="birthday">
             </div>
     
             <div class="mb-3">

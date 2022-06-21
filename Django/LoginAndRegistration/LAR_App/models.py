@@ -1,6 +1,7 @@
 from django.db import models
 import re
 import bcrypt
+import datetime
 
 class UserManager(models.Manager):
     def register_validation(self,postData):
@@ -21,6 +22,13 @@ class UserManager(models.Manager):
             except:
                 pass
         
+        birthday = datetime.datetime.strptime(postData['birthday'],"%Y-%m-%d") # convert the string date into datetime type
+        bdHigherThan14 = datetime.datetime.today() - birthday # substract today date from the birthday given a timedelta type
+        if birthday > datetime.datetime.today():
+            errors['birthday'] = "Date of Birth should be in the past !"
+        elif bdHigherThan14.days < 365 * 13: # compare number of days in the DoB with 13years days .
+            errors['birthday'] = "Minimum age requirment is 13 age try next years :) "
+
         if postData['password'] != postData['confirm_password']:
             errors["passwords"] = "passwords are not matched!" 
 
@@ -50,6 +58,7 @@ class User(models.Model):
     lname = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
+    birthday = models.DateTimeField(default="1999-01-01")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
