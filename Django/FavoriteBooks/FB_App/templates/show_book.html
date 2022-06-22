@@ -13,7 +13,7 @@
 
 </head>
 
-<body>  
+<body>
 
     <div class="container mt-4 w-50 mx-auto">
         {% if messages %}
@@ -28,44 +28,49 @@
     </div>
 
     <div class="container d-flex justify-content-between mt-4 ">
+
         <h1>Success! Welcome, {{user.fname}}</h1>
 
-        <a class="w-25" href="/logout">Log out</a>
+        <div class="actions">
+            <a class="w-25 mx-4" href="/logout">Log out</a>
+            <a class="btn btn-primary" href="/books" role="button">Go back</a>
+        </div>
     </div>
     <hr>
 
     <div class="container d-flex justify-content-between">
-        
+
         <form class="container" action="/update_book/{{book.id}}" method="POST">
             {% csrf_token %}
             <h1 class="display-4">
                 {% if user.id == book.uploaded_by.id %}
+                <div class="mb-3">
                     <div class="mb-3">
-                        <div class="mb-3">
-                            <input type="text" class="form-control w-50" name="title" value="{{book.title}}">
-                        </div>
+                        <input type="text" class="form-control w-50" name="title" value="{{book.title}}">
                     </div>
+                </div>
                 {% else %}
-                    <p>{{book.title}}</p>
+                <p>{{book.title}}</p>
                 {% endif %}
             </h1>
 
-            <p>Added By: 
-                <a href="#">{{book.uploaded_by.fname}} {{book.uploaded_by.lname}}</a>
+            <p>Added By:
+                <a href="/profile/{{book.uploaded_by.id}}">{{book.uploaded_by.fname}} {{book.uploaded_by.lname}}</a>
             </p>
             <p>Added On: {{book.created_at}}</p>
             <p>Last Updated On: {{book.updated_at}}</p>
             <p class="d-flex">
-                <p>Description:</p>
-                {% if user.id == book.uploaded_by.id %}
-                    <div class="mb-3">
-                        <textarea class="form-control w-50" name="description" rows="3">{{book.description}}</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-white text-dark border border-2 border-dark">Update</button>
-                    <a class="btn btn-danger border border-2 border-dark" href="/delete_book/{{book.id}}" role="button">Delete</a>
-                {% else %}
-                    <p> {{book.description}}</p>
-                {% endif %}
+            <p>Description:</p>
+            {% if user.id == book.uploaded_by.id %}
+            <div class="mb-3">
+                <textarea class="form-control w-50" name="description" rows="3">{{book.description}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-white text-dark border border-2 border-dark">Update</button>
+            <a class="btn btn-danger border border-2 border-dark" href="/delete_book/{{book.id}}"
+                role="button">Delete</a>
+            {% else %}
+            <p> {{book.description}}</p>
+            {% endif %}
             </p>
         </form>
 
@@ -73,15 +78,39 @@
             <h1>Users who like this book: </h1>
             <ul>
                 {% for user in book.users_who_like.all %}
-                    <li>{{user.fname}} {{user.lname}}</li>
+                <li>
+                    <a href="/profile/{{user.id}}">{{user.fname}} {{user.lname}}</a>
+
+                </li>
                 {% endfor %}
             </ul>
             {% if user in book.users_who_like.all %}
                 <a href="/unlikebook/{{book.id}}">Un-Favorite</a>
             {% else %}
-                <a href="/likebook/{{book.id}}/show_book">Add to Favorites</a>
+                <a href="/likebook/{{book.id}}">Add to Favorites</a>
             {% endif %}
         </div>
+    </div>
+
+    <div class="container">
+        <p>{{book.title}}'s comments:</p>
+
+        <ul>
+            {% for comment in book.comments.all %}
+            {{comment.message}}
+            <p class="form-text text-muted ms-2">{{comment.who_comment.fname}} {{comment.who_comment.lname}}</p>
+            {% empty %}
+            <p>No comments</p>
+            {% endfor %}
+        </ul>
+
+        <form action="/add_comment/{{book.id}}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <textarea class="form-control" name="comment" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Comment</button>
+        </form>
     </div>
 
     <!-- Bootstrap JavaScript Libraries -->

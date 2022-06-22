@@ -82,3 +82,19 @@ class Book(models.Model):
     uploaded_by = models.ForeignKey(User,related_name="book_uploader",on_delete=models.CASCADE)
     users_who_like =models.ManyToManyField(User, related_name="liked_books")
     objects = BookManager()
+
+class CommentManager(models.Manager):
+    def comment_validtor(self, postData):
+        errors = {}
+        if len(postData['comment']) < 2:
+            errors['comment'] = "Comment must be more than 2 characters"
+
+        return errors
+
+class Comment(models.Model):
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    objects = CommentManager()
+    book_comments = models.ForeignKey(Book,related_name="comments",on_delete=models.CASCADE)
+    who_comment = models.ForeignKey(User,related_name="comments",on_delete=models.CASCADE)
