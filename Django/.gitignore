@@ -140,5 +140,5 @@ GitHub.sublime-settings
 # exams
 
 second_exam/
-Django/belt_exam/
-Belt_Exam/
+belt_exam/
+../Belt_Exam/
