@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>C+R Users</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <style>
+        #submitBtn{
+            box-shadow: 3px 4px 1px black;
+        }
+
+        #submitBtn:hover{
+            background-color: #212529;
+            color:#fff;
+            box-shadow: 3px 4px 1px grey;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="p-5 bg-list ">
+        <div class="container text-center">
+            <h1 class="display-3">All the Users</h1>
+            <p class="lead">reterive all users data from database and list them into the table below</p>
+            <table class="table table-hover table-responsive">
+                <thead class="thead-inverse bg-dark text-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in Users %}
+                            <tr>
+                                <td>{{user.id}}</td>
+                                <td>{{user.first_name}} {{user.last_name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.age}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+            <hr class="my-3">
+            <h2 class="display-6">Add a User</h2>
+            <form action="/create" method="POST">
+                {% csrf_token %}
+                <div class="row my-3">
+                    <div class="col d-flex align-items-center justify-content-evenly">
+                        <label for="first_name" class="form-label">First Name:</label>
+                        <input type="text" class="form-control w-50" name="first_name">
+                    </div>
+                    <div class="col d-flex align-items-center justify-content-evenly">
+                        <label for="" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control w-50" name="last_name">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col d-flex align-items-center justify-content-evenly">
+                        <label for="" class="form-label">Email:</label>
+                        <input type="email" class="form-control w-50" name="email">
+                    </div>
+                    <div class="col d-flex align-items-center justify-content-evenly">
+                        <label for="" class="form-label">Age:</label>
+                        <input type="number" class="form-control w-50" name="age">
+                    </div>
+                </div>
+                <button id="submitBtn" type="submit" class="btn btn-white border-2 border-dark w-25">Add</button>
+            </form>
+        </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

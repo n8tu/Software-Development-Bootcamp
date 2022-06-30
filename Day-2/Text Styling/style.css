@@ -1,0 +1,26 @@
+* {
+    font-family:'Courier New', Courier, monospace;
+}
+.title{
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+#title-second-word{
+    color: #73F6F8;
+}
+
+.sub-title{
+    background-color: #5F3694;
+    color: white;
+    text-align: center;
+}
+
+.link{
+    background-color: #A6C4F3;
+    color:black;
+    text-align: right;
+    text-decoration: underline;
+}
+

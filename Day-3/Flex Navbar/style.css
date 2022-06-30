@@ -1,0 +1,48 @@
+@font-face {
+    font-family: Roboto-Light;
+    src: url(Fonts/Roboto-Light.ttf);
+}
+
+.nav{
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Roboto-Light;
+}
+
+.nav-title{
+    color: white;
+    margin-left: 20px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+}
+
+.nav-links li{
+    list-style: none;
+}
+
+.nav-links > li > a {
+    text-decoration: none;
+    color:#8F8F8F;
+    
+}
+
+.nav-links > li > a.active{
+    color:white; 
+}
+
+.btn{
+    background-color: #4B9FB5;
+    border: 0.2rem black solid;
+    color:white;
+    width: 80px;
+    height: 30px;
+    box-shadow: 1px 3px black;
+    border-radius: 0px 21px 16px 8px / 18px 0px 6px 20px;
+}

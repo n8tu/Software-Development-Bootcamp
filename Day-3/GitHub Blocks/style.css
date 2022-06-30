@@ -1,0 +1,47 @@
+.text-center {
+    text-align: center;
+}
+
+body{
+    background-color: #EAF8F2;
+}
+
+.bg-blue{
+    background-color: #79C6F3;
+}
+
+.bg-white{
+    background-color:white;
+}
+
+.bg-pink{
+    background-color: #D1AABA;
+}
+
+.container{
+    margin: 20px auto;
+    width: 1000px;
+    padding: 25px;
+}
+.flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-space-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-space-evenly{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Succulent Shop</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="scripts.js"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="left-side">
+                <img src="assets/leaf.png" alt="leaf picture">
+                <a href="#">
+                    <h1>EasyBay</h1>
+                </a>
+            </div>
+            <div class="center-side">
+                <input type="text" id="searchInput" placeholder="Search for anything">
+                <img src="assets/search-dark.png" alt="search image">
+            </div>
+            <div class="right-side">
+                <a href="#">Sign In</a>
+                <a onclick="alert('Your Cart is empty!')" href="#">
+                    <img src="assets/cart-dark.png" alt="Cart image">
+                </a>
+            </div>
+        </div>
+
+        <div class="subnav">
+            <a href="#" class="tab">Aeonium</a>
+            <a href="#" class="tab">Andormischus</a>
+            <a href="#" class="tab">Agave</a>
+            <a href="#" class="tab">Aloe</a>
+            <a href="#" class="tab">Anacampseros</a>
+            <a href="#" class="tab">Aristaloe</a>
+            <a href="#" class="tab">More...</a>
+        </div>
+
+        <div class="main">
+            <p class="details">
+                Your Souece for Serious Succulent Specialties
+            </p>
+            <div class="section">
+                <div class="left-side">
+                    <div class="details">
+                        <p>
+                            Discover succ-ulent varieties one pot or rack at a time!
+                        </p>
+                        <div class="discover-container">
+                            <a href="#">
+                                Discover
+                            </a>
+                            <img src="assets/arrow-light.png" alt="arrow right">
+                        </div>
+                    </div>
+
+                    <div class="picture-container">
+                        <img onmouseover="review(this)" onmouseout="review(this)" src="assets/succulents-1.jpg" alt="succulents picture">
+                    </div>
+                </div>
+                <div class="right-side">
+                    <img src="assets/aloe-s.jpg" alt="">
+                    <button>
+                        Soothing Aloe
+                        <img src="assets/arrow-light.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="col">
+                    <img src="assets/aeonium-s.jpg" alt="Aeonium picture">
+                    <label for="">Aeonium</label>
+                </div>
+                <div class="col">
+                    <img src="assets/aloe-s.jpg" alt="Agave picture">
+                    <label for="">Agave</label>
+                </div>
+                <div class="col">
+                    <img src="assets/cactus-s.jpg" alt="Cactus picture">
+                    <label for="">Cactus</label>
+                </div>
+                <div class="col">
+                    <img src="assets/echeveria-s.jpg" alt="Echeveria picture">
+                    <label for="">Echeveria</label>
+                </div>
+                <div class="col">
+                    <img src="assets/sedum-s.jpg" alt="Sedum picture">
+                    <label for="">Sedum</label>
+                </div>
+                <div class="col">
+                    <img src="assets/sempervivum-s.jpg" alt="Sempervivum picture ">
+                    <label for="">Sempervivum</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="cookies">
+            <img src="assets/alert-dark.png" alt="alert sign">
+            <p>
+                This site makes use of third-party cookies, by clicking "I accept"<br>
+                you agree to the terms outlined in our <a href="#">cookie policy.</a>
+            </p>
+            <button onclick="hide(this)">I Accept</button>
+        </div>
+    </body>
+</html>

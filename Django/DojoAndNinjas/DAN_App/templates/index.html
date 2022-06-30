@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="d-flex justify-content-evenly">
+
+        <div class="w-25 text-center">
+            <h1 class="my-3">Add a Dojo</h1>
+            <form action="/create" method="POST">
+                {% csrf_token %}
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label for="dojo_name" class="form-label">Name:</label>
+                    <input type="text" name="dojo_name" class="form-control w-50" required>
+                </div>
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label for="dojo_city" class="form-label">City:</label>
+                    <input type="text" name="dojo_city" class="form-control w-50" required>
+                </div>
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label for="dojo_state" class="form-label">State:</label>
+                    <input type="text" name="dojo_state" class="form-control w-50" maxlength="2" required>
+                </div>
+                <input type="hidden" name="form" value="add_Dojo">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+
+        <div class="w-25 text-center">
+            <h1 class="my-3">Add a Ninja</h1>
+            <form action="/create" method="POST">
+                {% csrf_token %}
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label for="first_name" class="form-label">First Name:</label>
+                    <input type="text" name="first_name" class="form-control w-50" required>
+                </div>
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label for="last_name" class="form-label">Last Name:</label>
+                    <input type="text" name="last_name" class="form-control w-50" required>
+                </div>
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label for="dojo_id" class="form-label">Dojo:</label>
+                    <select class="form-select w-50" name="dojo_id" required>
+                        <option value ="" selected>-select a dojo-</option>
+                        {% for dojo in dojos %}
+                            <option value="{{dojo.id}}">{{dojo.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="hidden" name="form" value="add_Ninja">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container d-flex align-items-center flex-column">
+        <h1 class="display-5 mb-4">All the Dojos</h1>
+        <ul style="list-style: none;">
+            {% for dojo in dojos %}
+                <li>
+                    <b>{{dojo.name}}</b>
+                </li>
+                    <ul>
+                        {% for ninja in dojo.ninjas.all %}
+                        <li>
+                            {{ninja.first_name}} {{ninja.last_name}}
+                        </li>
+                        {% endfor %}
+                    </ul>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

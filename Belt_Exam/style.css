@@ -1,0 +1,236 @@
+@font-face {
+    font-family: "website-font";
+    src: url("assets/fonts/Pangolin-Regular.ttf");
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "website-font";
+}
+
+.navbar , .subnav , .main , .cookies{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}
+
+.navbar .left-side{
+    display: flex;
+    flex:2;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar .left-side img {
+    background-color: #03d1b2;
+    width: 40px;
+    margin-right: 20px;
+
+}
+
+.navbar .left-side a {
+    color:black;
+    text-decoration: none;
+}
+
+.navbar .center-side{
+    display: flex;
+    justify-content: center;
+    flex:4;
+}
+
+#searchInput{
+    width: 100%;
+    height: 35px;
+    border: 0.2rem solid black;
+    border-radius: 25px;
+}
+
+.navbar .center-side img{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    right: 40px;
+    top:8px;
+}
+
+.navbar .right-side{
+    display:flex;
+    flex:1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .right-side a{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar .right-side img{
+    width: 50%;
+}
+
+.subnav{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.2rem solid black;
+}
+
+.tab{
+    color:black;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.main .details{
+    text-align: center;
+    margin: 15px;
+    font-size:24px;
+}
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+    margin-bottom: 25px;
+}
+
+.section .left-side{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex:3;
+    margin-right: 30px;
+}
+
+.section .left-side .details{
+    background-color: #03d1b2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    margin: 0px;
+}
+
+.section .left-side .details p{
+    width: 70%;
+    color:white;
+}
+
+.section .left-side .details .discover-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.section .left-side .details .discover-container img{
+    width: 25%;
+}
+
+.section .left-side .details .discover-container a{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section .left-side .picture-container{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.section .left-side .picture-container img{
+    height: 100%;
+    width: 100%;
+}
+
+
+.section .right-side{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section .right-side img{
+    height: 60%;
+    width: 100%;
+}
+
+.section .right-side button{
+    height: 20%;
+    width: 100%;
+    background-color: #03d1b2;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.section .right-side button img{
+    width: 13%;
+    margin-left: 6px;
+}
+
+.section + .section {
+    background-color: #aae7d8;
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+}
+
+.section + .section .col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.section + .section .col * {
+    margin: 10px;
+}
+
+.section + .section .col img{
+    width: 60%;
+    margin-top: 15px;
+    border-radius: 50%;
+}
+
+.cookies{
+    border:0.2rem solid black;
+    position: fixed;
+    left: 10%;
+    bottom: 1%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10%;
+}
+
+.cookies img{
+    width: 6%;
+}
+
+.cookies button{
+    width: 13%;
+    height: 50%;
+    background-color: #03d1b2;
+    border: 0.2rem solid black;
+    box-shadow: 3px 4px 2px black;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}

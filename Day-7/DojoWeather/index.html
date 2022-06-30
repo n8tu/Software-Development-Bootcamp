@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a id="navbar-title" href="#">
+            <h1>DojoWeather</h1>
+        </a>
+        
+        <div class="navbar-tabs">
+            <a href="#" onclick="alert('Loading weather report...')" class="tab">Burbank</a>
+            <a href="#" onclick="alert('Loading weather report...')" class="tab">Chicago</a>
+            <a href="#" onclick="alert('Loading weather report...')" class="tab">Dallas</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="section">
+            <div class="section-title">
+                <h2>San Jose</h2>
+                <div class="section-right-side">
+                    <label for="temperature">show temperature in </label>
+                    <select onchange="changeTemperature(this)" id="temperature">
+                        <option value="C">°C</option>
+                        <option value="F">°F</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-content">
+                <div class="temperature-info">
+                    <h4>Today</h4>
+                    <img src="assets/imgs/some_rain.png" alt="raining cloud">
+                    <p>some rain</p>
+                    <div class="temperatures-container">
+                        <span class="highest">24°</span>
+                        <span class="lowest">18°</span>
+                    </div>
+                </div>
+
+                <div class="temperature-info">
+                    <h4>Tomorrow</h4>
+                    <img src="assets/imgs/some_sun.png" alt="sun image">
+                    <p>some sun</p>
+                    <div class="temperatures-container">
+                        <span class="highest">27°</span>
+                        <span class="lowest">18°</span>
+                    </div>
+                </div>
+
+                <div class="temperature-info">
+                    <h4>Friday</h4>
+                    <img src="assets/imgs/some_clouds.png" alt="cloud image">
+                    <p>some clouds</p>
+                    <div class="temperatures-container">
+                        <span class="highest">21°</span>
+                        <span class="lowest">16°</span>
+                    </div>
+                </div>
+
+                <div class="temperature-info">
+                    <h4>Saturday</h4>
+                    <img src="assets/imgs/some_sun.png" alt="sun cloud">
+                    <p>some sun</p>
+                    <div class="temperatures-container">
+                        <span class="highest">26°</span>
+                        <span class="lowest">21°</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cookies">
+            <img src="assets/imgs/cookie.png" alt="eaten cookie">
+            <p>
+                <b>Stop! Cookie time</b> <br>
+                We use cookies (sadly not edible ones) to personalize <br>
+                content and ads, to provide social media features and to <br>
+                analyse our traffic. <a href="#">Read more...</a>
+            </p>
+            <button onclick="dismiss(this)">I Accept</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="left-side">
+        <h1>Profile</h1>
+        <a href="#">Home</a>
+        <a class="active" href="#">My Profile</a>
+        <a href="#">Find Connections</a>
+      </div>
+      <div class="right-side">
+        <button class="btn">Sign Out</button>
+      </div>
+    </div>
+
+    <div class="body-container">
+      <div class="left-side-body">
+        <div class="profile-container">
+          <div class="profile-background"></div>
+          <div class="profile">
+            <div class="profile-image-shape">
+              <img
+                id="profile-image"
+                src="icons/user-circle.png"
+                alt="profile image"
+              />
+            </div>
+            <div class="profile-content-container">
+              <h1 id="profile-name">Jane Doe</h1>
+              <div class="profile-location">
+                <img src="icons/map-marker.png" alt="map marker" />
+                Seattle
+              </div>
+              <p id="profile-description">
+                Developer | Engineer | Problem Solver Master of shadows and the
+                Internet!
+              </p>
+
+              <a id="profile-edit" href="#">
+                <img src="icons/gear.png" alt="gear image" />
+                edit profile
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="education-section">
+            <div id="section-background">
+                <span id="section-title">Education</span>
+            </div>
+            <h3 id="education-title">Coding Dojo - Full Stack Bootcamp</h3>
+            <p id="education-date">Dec 2019 - Mar 2020</p>
+            <p id="education-description">
+                Triple black belt in Python, MERN , and C#
+            </p>
+        </div>
+      </div>
+
+      <div class="right-side-body">
+          <div class="connection-requests-container">
+              <div class="header-background">
+                  <span id="connections-requests-number">2</span>
+                  <span id="header-title">Connection Requests</span>
+              </div>
+              <div class="connection-requests">
+                  <div class="user-requester-container">
+                      <img src="icons/user-circle.png" alt="profile image">
+                      <span id="user-name">Todd E</span>
+                      <div class="connection-options">
+                          <img src="icons/accept.png" alt="true sign"> 
+                          <img src="icons/refuse.png" alt="false sign">
+                      </div>
+                  </div>
+
+                  <div class="user-requester-container">
+                    <img src="icons/user-circle.png" alt="profile image">
+                    <span id="user-name">Phil K</span>
+                    <div class="connection-options">
+                        <img src="icons/accept.png" alt="true sign"> 
+                        <img src="icons/refuse.png" alt="false sign">
+                    </div>
+                 </div>
+
+                 <div class="user-requester-container">
+                    <img src="icons/user-circle.png" alt="profile image">
+                    <span id="user-name">Phil K</span>
+                    <div class="connection-options">
+                        <img src="icons/accept.png" alt="true sign"> 
+                        <img src="icons/refuse.png" alt="false sign">
+                    </div>
+                </div>
+                  
+              </div>
+          </div>
+
+          <div class="connections-container">
+            <div class="header-background">
+                <span id="connections-requests-number">500+</span>
+                <span id="header-title">Your Connections</span>
+            </div>
+            <div class="connection-requests">
+                <div class="user-requester-container">
+                    <img src="icons/user-circle.png" alt="profile image">
+                    <span id="user-name">Todd E</span>
+                </div>
+
+                <div class="user-requester-container">
+                  <img src="icons/user-circle.png" alt="profile image">
+                  <span id="user-name">Phil K</span>
+               </div>
+
+               <div class="user-requester-container">
+                  <img src="icons/user-circle.png" alt="profile image">
+                  <span id="user-name">Phil K</span>
+              </div>
+
+              <div class="user-requester-container">
+                <img src="icons/user-circle.png" alt="profile image">
+                <span id="user-name">Phil K</span>
+            </div>
+
+            <div class="user-requester-container">
+                <img src="icons/user-circle.png" alt="profile image">
+                <span id="user-name">Phil K</span>
+            </div>
+
+            <div class="user-view-more">
+                <div id="user-view-more">
+                    <a href="#">View More</a>
+                </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

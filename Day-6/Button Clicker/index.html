@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojonary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1 id="navbar-title">Dojonary</h1>
+        <input type="text" id="searchInput" placeholder="Search">
+        <button onclick="isLoggedIn(this)" id="accessBtn">Login</button>
+    </div>
+
+    <div class="main">
+        <div class="leftSide-container">
+            <div class="section">
+                <div id="leftside-section">
+                    <h1 id="section-title">ninja</h1>
+                    <span id="section-subtitle">noun</span>
+                    <p id="section-defenition">Plural: ninjas</p>
+                    <button onclick="like(this)" class="likesBtn">13 likes</button>
+                </div>
+                <div id="rightSide-section">
+                    <p>A practitioner skilled in the
+                        <a href="#">Japanese</a> art of 
+                        <a href="#">ninjutsu</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div id="leftside-section">
+                    <h1 id="section-title">ninja</h1>
+                    <span id="section-subtitle">noun</span>
+                    <p id="section-defenition">Plural: ninjas</p>
+                    <button onclick="like(this)" class="likesBtn">37 likes</button>
+                </div>
+                <div id="rightSide-section">
+                    <p>A <a href="#">programmer</a> who breaks
+                        down problems with <a href="#">zen</a>-like foucs
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="rightSide-container">
+            <div class="section">
+                <p>
+                    Dojonary is
+                    defined by<b>YOU</b>
+                </p>
+                <button onclick="remove(this)" id="definitionBtn">Add Definition</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

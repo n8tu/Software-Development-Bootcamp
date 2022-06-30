@@ -1,0 +1,13 @@
+console.log('num is' , 3);
+y = 6;
+return 6;
+console.log('num is' , 5);
+y = 10;
+return 10;
+result = 6+10 => 16
+console.log('result is', 16);
+
+output: 
+num is 3
+num is 5
+result is 16

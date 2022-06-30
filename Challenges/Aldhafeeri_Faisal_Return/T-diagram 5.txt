@@ -1,0 +1,13 @@
+console.log(15);
+console.log(10);
+return 10*2 => 20
+result = 20;
+console.log(20);
+console.log(15);
+
+output:
+
+15
+10
+20
+15

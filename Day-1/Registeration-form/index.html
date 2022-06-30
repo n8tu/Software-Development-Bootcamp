@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+    <form action="">
+      <div>
+        <label for="">First Name: *</label>
+        <input type="text" required />
+      </div>
+
+      <div>
+        <label for="">Last Name: *</label>
+        <input type="text" required />
+      </div>
+
+      <div>
+        <label for="">Email Address: *</label>
+        <input type="email" required />
+      </div>
+
+      <div>
+        <label for="">Password *</label>
+        <input type="password" required />
+      </div>
+
+      <div>
+        <label for="">Confirm password</label>
+        <input type="password" required />
+      </div>
+
+      <div>
+        <label for="">Birthday</label>
+        <input type="date" />
+      </div>
+
+      <div>
+        <label for="">Gender Identity:</label>
+        <input type="radio" name="gender" value="Male" />Male
+        <input type="radio" name="gender" value="Female" />Female
+        <input type="radio" name="gender" value="Non-binary" />Non-binary
+        <input type="radio" name="gender" value="I prefer not to answer" />I
+        prefer not to answer
+      </div>
+      <label for="">A short description about myself:</label>
+      <div>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </div>
+
+      <div>
+        <label for="">Favorite language:</label>
+        <select name="programming_language" id="">
+          <option value="" selected>Javascript</option>
+          <option value="">Java</option>
+          <option value="">PHP</option>
+          <option value="">Python</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="checkbox" name="mail" />
+        <label for="mail"
+          >Yes, I would like to receive periodic email upadtes</label
+        >
+      </div>
+
+      <input type="submit" value="Create Account" />
+
+      <p>* Indicates a required field</p>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1 id="navbar-title">Network</h1>
+    </div>
+
+    <div class="subNav">
+        <p id="page-description">Your Feed</p>
+    </div>
+
+    <div class="main">
+        <div class="leftSide-container">
+            <div class="section">
+                <img id="profile-image" src="assets/imgs/user-circle.png" alt="profile image">
+                <a href="#">Add on avatar</a>
+                <p id="profile-name">James Doe</p>
+            </div>
+        </div>
+
+        <div class="rightSide-container">
+            <div class="section">
+                <div class="feed-information">
+                    <p class="feeder-name">Neil M</p>
+                    <div class="likes-container">
+                        <p class="feed-likes-1">9 like(s)</p>
+                        <button id="feed-likes-1" onclick="like(this.id)" onmouseover="jump(this)" onmouseout="unjump(this)" class="likeBtn">Like</button>
+                    </div>
+                </div>
+                <p class="feeder-content">
+                    I just set up this new discord bot, let me know what you all think. <a href="#">link</a>
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="feed-information">
+                    <p class="feeder-name">Nichole K</p>
+                    <div class="likes-container">
+                        <p class="feed-likes-2">12 like(s)</p>
+                        <button id="feed-likes-2" onclick="like(this.id)" onmouseover="jump(this)" onmouseout="unjump(this)" class="likeBtn">Like</button>
+                    </div>
+                </div>
+                <p class="feeder-content">
+                    Just finished my <a href="#">next comic</a>, check it out.
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="feed-information">
+                    <p class="feeder-name">Jim R</p>
+                    <div class="likes-container">
+                        <p class="feed-likes-3">9 like(s)</p>
+                        <button id="feed-likes-3" onclick="like(this.id)" onmouseover="jump(this)" onmouseout="unjump(this)" class="likeBtn">Like</button>
+                    </div>
+                </div>
+                <p class="feeder-content">
+                    I can't stop listening to the <a href="#">new album.</a> Who else is Linking it?
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

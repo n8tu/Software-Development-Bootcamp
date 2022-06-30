@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <style>
+        h2 {
+            text-decoration: underline;
+        }
+        
+        #backBtn {
+            box-shadow: 2px 2px 1px black;
+            background-color: #80A4AD;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5 w-50 border border-dark border-2">
+        <h2 class="m-4">Submitted Info</h2>
+        <div class="row mx-4">
+            <div class="col">
+                <label for="name" class="form-label">Name:</label>
+            </div>
+            <div class="col">
+                {{name}}
+            </div>
+        </div>
+        <div class="row mx-4">
+            <div class="col">
+                <label for="" class="form-label">Dojo Location:</label>
+            </div>
+            <div class="col">
+                {{location}}
+            </div>
+        </div>
+        <div class="row mx-4">
+            <div class="col">
+                <label for="" class="form-label">Favorite Language:</label>
+            </div>
+            <div class="col">
+                {% if language == 'Python' %} Python!!! {% else %} {{language}} {% endif %}
+            </div>
+        </div>
+        <div class="row mx-4">
+            <div class="col">
+                <label for="" class="form-label">Gender:</label>
+            </div>
+            <div class="col">
+                {{gender}}
+            </div>
+        </div>
+        <div class="row mx-4">
+            <div class="col">
+                <label for="" class="form-label">Skills:</label>
+            </div>
+            <div class="col">
+                {% for skill in skills %} {{skill}} {% endfor %}
+            </div>
+        </div>
+        <div class="row mx-4">
+            <div class="col">
+                <label for="" class="form-label">Comment:</label>
+            </div>
+            <div class="col">
+                {{comment}}
+            </div>
+        </div>
+
+        <div class="row m-4">
+            <a id="backBtn" class="btn border border-2 border-dark w-25 ms-auto" href="javascript:history.back()" role="button">Go Back</a>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
+
+</html>

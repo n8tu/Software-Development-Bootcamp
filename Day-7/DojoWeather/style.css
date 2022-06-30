@@ -1,0 +1,128 @@
+@font-face {
+    font-family: "website font";
+    src: url("assets/fonts/Pangolin-Regular.ttf");
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "website font";
+}
+.navbar{
+    width:100%;
+    height:100px;
+    background-color: #9fc5f8;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#navbar-title{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-tabs{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.tab{
+    margin: 0px 15px;
+    text-decoration: none;
+    color:white;
+    font-size: 22px;
+}
+
+.tab:hover{
+    color:black;
+    border-bottom: 0.2rem solid black;
+    border-radius: 4px;
+}
+
+.section{
+    margin-bottom: 20px;
+}
+
+.section-title{
+    width: 80%;
+    height: 80px;
+    margin:0px auto;
+}
+
+.section-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.2rem solid black;
+    border-radius: 4px;
+}
+
+#temperature{
+    height: 30px;
+    background-color: transparent;
+    border: black 0.2rem solid;
+}
+
+.section-content{
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.temperature-info{
+    width: 20%;
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.temperature-info * {
+    margin: 10px;
+}
+
+.temperature-info img{
+    width: 75%;
+    border-radius: 50%;
+}
+
+.highest{
+    color:#ce2b27;
+    font-weight: bold;
+}
+
+.lowest{
+    color:#2b77e4;
+    font-weight: bold;
+}
+
+.cookies{
+    width: 80%;
+    background-color: white;
+    position: fixed;
+    left:10%;
+    top:80%;
+    border: 0.2rem solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.cookies img{
+    width:8%;
+    height: 8%;
+}
+
+.cookies button{
+    width:20%;
+    height: 30px;
+    background-color: #9fc5f8;
+    border: 0.2rem solid black;
+    box-shadow: 3px 3px 2px black;
+    font-size: 14px;
+    font-weight: 500;
+}

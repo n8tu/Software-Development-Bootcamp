@@ -1,0 +1,15 @@
+sum = 5
+console.log('sum is' , 5);
+return 5;
+sum = 8
+console.log('sum is' , 8);
+return 8;
+
+result = 13;
+console.log('result is', 13);
+
+output:
+
+sum is 5
+sum is 8
+result is 13

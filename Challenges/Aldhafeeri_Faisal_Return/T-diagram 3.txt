@@ -1,0 +1,7 @@
+console.log('num is', 3)
+return 15+3 => 18
+
+result = 18
+output:
+num is 3
+x is 18
