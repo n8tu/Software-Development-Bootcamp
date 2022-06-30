@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Trip Buddy Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container d-flex justify-content-between mt-4 ">
+        <div class="container">
+
+            <h1>Hello {{user.fname}}!</h1>
+        </div>
+
+        <div class="container d-flex justify-content-evenly align-items-center">
+            <a class="w-25" href="/logout">Log out</a>
+            <a class="btn btn-white text-dark border border-2 border-dark" href="/trips/new" role="button">Create a new trip!</a>
+        </div>
+        
+    </div>
+
+    <div class="m-4">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'success' %} alert-success {% else %} alert-danger {% endif %} alert-dismissible fade show"
+            role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <p>Your trips:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Destination</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Plan</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trip in your_trips %}
+                    <tr>
+                        <td scope="row">
+                            <a href="/trips/{{trip.id}}">{{trip.destination}}</a>
+                        </td>
+                        <td>{{trip.start_date|date:"d/m/Y"}}</td>
+                        <td>{{trip.end_date|date:"d/m/Y"}}</td>
+                        <td>{{trip.plan}}</td>
+                        <td>
+                            {% if trip.created_by == user %}
+                                <a href="/trips/delete/{{trip.id}}">Remove</a> | <a href="/trips/edit/{{trip.id}}">Edit</a>
+                            {% else %}
+                                <a href="/trips/cancel/{{trip.id}}">Cancel</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <td colspan="5" class="text-center">No trips</td>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <p>Other people's trips</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Destination</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Plan</th>
+                    <th>Want to join?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trip in others_trips %}
+                    <tr>
+                        <td scope="row">
+                            <a href="/trips/{{trip.id}}">{{trip.destination}}</a>
+                        </td>
+                        <td>{{trip.start_date|date:"d/m/Y"}}</td>
+                        <td>{{trip.end_date|date:"d/m/Y"}}</td>
+                        <td>{{trip.plan}}</td>
+                        <td>
+                            <a href="trips/join/{{trip.id}}">Join</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <td colspan="5" class="text-center">No trips</td>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
