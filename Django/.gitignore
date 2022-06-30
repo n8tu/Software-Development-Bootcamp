@@ -139,5 +139,4 @@ GitHub.sublime-settings
 
 # exams
 
-second_exam/
-belt_exam/
+*_exam/
