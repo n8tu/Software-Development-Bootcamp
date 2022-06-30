@@ -1,5 +1,0 @@
-console.log('hello')
-result = 15
-output: 
-hello 
-result is 15
